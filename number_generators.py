@@ -1,4 +1,3 @@
-import random
 import secrets
 
 from typing import Protocol
@@ -7,11 +6,6 @@ from typing import Protocol
 class RandomIntGenerator(Protocol):
     def generate_random_int(self, ending: int, beginning: int = 0) -> int:
         ...
-
-
-class PseudoRandomIntGenerator:
-    def generate_random_int(self, ending: int, beginning: int = 0) -> int:
-        return random.randint(beginning, ending)
 
 
 class SecretRandomIntGenerator:
