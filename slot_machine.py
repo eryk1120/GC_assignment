@@ -1,6 +1,6 @@
 from itertools import groupby
 
-from number_generators import PseudoRandomIntGenerator, RandomIntGenerator
+from number_generators import RandomIntGenerator, SecretRandomIntGenerator
 
 DEFAULT_COST = 5
 DEFAULT_REELS = (
@@ -29,7 +29,7 @@ class SlotMachine:
         cost: int = DEFAULT_COST,
         reels: tuple[tuple[int, ...], ...] = DEFAULT_REELS,
         reels_positions: tuple[int, ...] = (0, 0, 0, 0, 0),
-        rng: RandomIntGenerator = PseudoRandomIntGenerator,
+        rng: RandomIntGenerator = SecretRandomIntGenerator,
         balance: int = 50,
     ) -> None:
         self.cost = cost
@@ -100,11 +100,3 @@ class SlotMachine:
 
         _, _, _ = self._update_rows()
         return self._evaluate_points()
-
-
-if __name__ == "__main__":
-    slot_machine = SlotMachine()
-    for i in range(100):
-        print(f"Round {i}")
-        slot_machine.play()
-        print(f"Balance: {slot_machine.balance}")

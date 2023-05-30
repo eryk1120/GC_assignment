@@ -6,7 +6,7 @@ from multiprocessing import cpu_count
 
 from tqdm import tqdm
 
-from slot_machine import SlotMachine
+from slot_machine import DEFAULT_COST, SlotMachine
 
 
 def game(stdscr) -> None:
@@ -44,7 +44,7 @@ def game(stdscr) -> None:
     curses.endwin()
 
 
-def simulate(revolutions: int = 1000, number_of_workers: int = None) -> None:
+def simulate(revolutions: int = 1000, number_of_workers: int = 100000) -> None:
     number_of_workers = number_of_workers or cpu_count()
     print("Running test...")
     results = 0
@@ -60,7 +60,7 @@ def simulate(revolutions: int = 1000, number_of_workers: int = None) -> None:
             ]
 
         for feature in as_completed(futures):
-            results += sum(feature.result()[1]) - 5
+            results += sum(feature.result()[1]) - DEFAULT_COST
 
     print(f"Sum of results: {results}")
 
