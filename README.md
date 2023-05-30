@@ -55,3 +55,6 @@ Random number generator is abstracted as protocol, where it is required to imple
 Only SecretRandomIntGenerator is implemented at this point, which is based on ```secrets``` module. It may not be the best way to generate random numbers, but it is cryptographically secure and should be good enough for sake of supplying working example.
 
 From the lack of time I decided to stop research there, if needed i can supply better implementation and refactor code to higher standard. And maybe supply more advanced analysis of outcome in simulation, which i think may be interesting.
+
+# Dev notes
+As it wasnt required there is no pipelines nor other automations setup, but there is static code analysis and linting setup with black and ruff. Can be accessed using ```make format``` command.
