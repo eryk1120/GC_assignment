@@ -3,7 +3,7 @@
 # Requirements
 
 Project is written in python 3.11, with use of poetry for dependency management.
-To set up project:
+To set up project (package for python3.11 development is required at system level example for ubuntu ```apt install python3.11-dev```):
 
 ```poetry shell```
 
